@@ -23,8 +23,11 @@ int main(void) {
 		fprintf(data, "%d\n", a[i]);
 	}
 	fclose(data);
-
+	
+	clock_t cost = clock();
 	sort(a, a + MAX);
+	cost = clock() - cost;
+	printf("cost time %lf ms\n", (double)cost / CLOCKS_PER_SEC);
 	FILE* f = fopen("res.txt", "wb");
 	for (int i = 0; i < MAX; i++) {
 		fprintf(f, "%d\n", a[i]);
